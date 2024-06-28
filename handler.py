@@ -1,8 +1,6 @@
 import enum
 from reader import DataReader
 import settings
-import keyboard
-import pyperclip
 import platform
 
 class MouseOpportunityKey(enum.Enum):
@@ -43,19 +41,4 @@ class MouseHandler:
     # 电脑执行粘贴动作
     def paste(self, data, keyboard_controller):
         if data is not None:
-            # keyboard.write(str(data), delay=0.2)
-            
-            # 将文本复制到剪贴板
-            pyperclip.copy(str(data))
-
-            # # 粘贴剪贴板的内容
-            # pasted_text = pyperclip.paste()
-
-            if self.current_os == 'Windows':
-                # Windows 系统使用 Ctrl+V 粘贴
-                keyboard.send('ctrl+v')
-            elif self.current_os == 'Darwin':
-                # MacOS 系统使用 Command+V 粘贴
-                keyboard.send('command+v')
-            else:
-                print('Unsupported OS')
+            keyboard_controller.type(str(data))

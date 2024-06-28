@@ -1,6 +1,8 @@
 import enum
 from reader import DataReader
 import settings
+import pyperclip
+import keyboard
 
 class MouseOpportunityKey(enum.Enum):
     BEFORE = 1
@@ -19,10 +21,10 @@ class MouseHandler:
         
         # 判断是否执行复制
         # 点击编号为n的时候，执行复制
-        if click_num == 6:
+        if click_num == 4:
             # 复制文件第11列
             self.do_paste(row_offset, 0, keyboard_controller)
-        elif click_num == 8:
+        elif click_num == 6:
             # 复制文件第11列
             self.do_paste(row_offset, 1, keyboard_controller)
 
@@ -42,4 +44,10 @@ class MouseHandler:
     # 电脑执行粘贴动作
     def paste(self, data, keyboard_controller):
         if data is not None:
-            keyboard_controller.type(str(data))
+            keyboard.write(str(data))
+            
+            # 将文本复制到剪贴板
+            # pyperclip.copy(str(data))
+
+            # # 粘贴剪贴板的内容
+            # pasted_text = pyperclip.paste()

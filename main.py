@@ -164,7 +164,6 @@ def replay_events():
     print("录制播放已完成")
 
 def on_press(key):
-    print(key)
     global ctrl_pressed, interrupt_replay, debug_mode
     try:
         if key == keyboard.Key.ctrl_l:

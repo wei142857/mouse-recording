@@ -1,6 +1,6 @@
 # 播放次数
 # Play count
-REPLAY_COUNT = 65
+REPLAY_COUNT = 1
 
 # 播放间隔时间，单位秒
 # Play interval, in seconds

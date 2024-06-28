@@ -21,10 +21,10 @@ class MouseHandler:
         # 点击编号为n的时候，执行复制
         if click_num == 6:
             # 复制文件第11列
-            self.do_paste(row_offset, 4, keyboard_controller)
+            self.do_paste(row_offset, 0, keyboard_controller)
         elif click_num == 8:
             # 复制文件第11列
-            self.do_paste(row_offset, 11, keyboard_controller)
+            self.do_paste(row_offset, 1, keyboard_controller)
 
     # 指定复制动作
     def do_paste(self, data_row, data_col, keyboard_controller):

@@ -36,7 +36,6 @@ def on_click(x, y, button, pressed):
         current_time = datetime.now()
         event_type = 'click'
         click_num += 1
-        # print(click_num)
         
         if last_click_time is not None and pressed:
             time_diff = (current_time - last_click_time).total_seconds()

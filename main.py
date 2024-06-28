@@ -164,17 +164,18 @@ def replay_events():
     print("录制播放已完成")
 
 def on_press(key):
+    print(key)
     global ctrl_pressed, interrupt_replay, debug_mode
     try:
         if key == keyboard.Key.ctrl_l:
             ctrl_pressed = True
-        elif ctrl_pressed and key == keyboard.KeyCode.from_char('i'):
+        elif ctrl_pressed and key == keyboard.KeyCode.from_char('i') or key == keyboard.KeyCode.from_char('\t'):
             threading.Thread(target=start_recording, daemon=True).start()
-        elif ctrl_pressed and key == keyboard.KeyCode.from_char('s'):
+        elif ctrl_pressed and key == keyboard.KeyCode.from_char('s') or key == keyboard.KeyCode.from_char('\x13'):
             threading.Thread(target=stop_recording, daemon=True).start()
-        elif ctrl_pressed and key == keyboard.KeyCode.from_char('r'):
+        elif ctrl_pressed and key == keyboard.KeyCode.from_char('r') or key == keyboard.KeyCode.from_char('\x12'):
             threading.Thread(target=replay_events, daemon=True).start()
-        elif ctrl_pressed and key == keyboard.KeyCode.from_char('q'):
+        elif ctrl_pressed and key == keyboard.KeyCode.from_char('q') or key == keyboard.KeyCode.from_char('\x11'):
             with lock:
                 interrupt_replay = True
                 print("已关闭播放")

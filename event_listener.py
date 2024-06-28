@@ -49,7 +49,7 @@ class ScreenshotListener:
 
         # 保存截图
         screenshot.save(full_path)
-        print(f"Screenshot saved to {full_path}")
+        # print(f"Screenshot saved to {full_path}")
 
     # 绘制光标
     def draw_cursor(self, screenshot, mouse_x, mouse_y):

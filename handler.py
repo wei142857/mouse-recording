@@ -26,7 +26,6 @@ class MouseHandler:
 
     # 指定复制动作
     def do_paste(self, data_row, data_col, keyboard_controller):
-        print("paste")
         # 读取文件数据
         data = self.read_data(data_row, data_col)
 
